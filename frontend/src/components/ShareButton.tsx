@@ -65,10 +65,10 @@ export default function ShareButton({
 
     setIsSharing(false);
 
-    // Clear success message after 10 seconds
+    // Clear success message after 30 seconds
     setTimeout(() => {
       setShareResult(null);
-    }, 10000);
+    }, 30000);
   };
 
   const isDisabled = disabled || !text.trim() || isSharing;
@@ -85,22 +85,44 @@ export default function ShareButton({
       </button>
       {shareResult && (
         <div className={`share-result ${shareResult.type}`}>
-          <span>{shareResult.message}</span>
-          {shareResult.url && (
-            <button
-              className="share-copy-btn"
-              onClick={async () => {
-                await navigator.clipboard.writeText(shareResult.url!);
-                setShareResult({
-                  ...shareResult,
-                  message: "Copied!",
-                });
-              }}
-            >
-              Copy
-            </button>
+          {shareResult.type === "success" && (
+            <div className="share-success-header">
+              <span className="share-success-icon">✓</span>
+              <span className="share-success-title">{shareResult.message}</span>
+            </div>
           )}
-          <span className="share-expiry-note">Link expires in 2 hours</span>
+          {shareResult.type === "error" && (
+            <span>{shareResult.message}</span>
+          )}
+          {shareResult.url && (
+            <div className="share-url-row">
+              <input
+                type="text"
+                value={shareResult.url}
+                readOnly
+                className="share-url-input"
+                onClick={(e) => (e.target as HTMLInputElement).select()}
+              />
+              <button
+                className="share-copy-btn"
+                onClick={async () => {
+                  await navigator.clipboard.writeText(shareResult.url!);
+                  setShareResult({
+                    ...shareResult,
+                    message: "Copied!",
+                  });
+                }}
+              >
+                Copy
+              </button>
+            </div>
+          )}
+          {shareResult.type === "success" && (
+            <div className="share-expiry-banner">
+              <span className="share-expiry-icon">⏱</span>
+              <span>This link expires in 2 hours</span>
+            </div>
+          )}
         </div>
       )}
     </div>
