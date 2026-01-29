@@ -8,7 +8,7 @@ import PasteInput from "../components/PasteInput";
 import ProgressTracker from "../components/ProgressTracker";
 import ReaderViewport from "../components/ReaderViewport";
 import SettingsPanel from "../components/SettingsPanel";
-import ShareButton from "../components/ShareButton";
+import ShareModal from "../components/ShareModal";
 import { tokenise } from "../domain/tokeniser";
 import type { CadenceProfile, Token } from "../domain/types";
 import { useReaderEngine } from "../hooks/useReaderEngine";
@@ -21,6 +21,7 @@ export default function HomePage() {
   const [inputText, setInputText] = useState("");
   const [mode, setMode] = useState<"setup" | "countdown" | "reading" | "celebration">("setup");
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
   const [error, setError] = useState("");
   const wasPlayingRef = useRef(false);
 
@@ -203,11 +204,12 @@ export default function HomePage() {
               <button className="btn btn-primary" onClick={handlePlay}>
                 Play
               </button>
-              <ShareButton
-                text={inputText}
-                wpm={state.wpm}
-                cadenceProfile={state.cadenceProfile}
-              />
+              <button
+                className="btn btn-ghost"
+                onClick={() => setShareModalOpen(true)}
+              >
+                Share
+              </button>
             </div>
             <p className="helper">
               Space toggles play. Arrow keys step. Esc exits reading mode.
@@ -254,6 +256,14 @@ export default function HomePage() {
         onClose={() => setSettingsOpen(false)}
         cadenceProfile={state.cadenceProfile}
         onCadenceChange={handleCadenceChange}
+      />
+
+      <ShareModal
+        isOpen={shareModalOpen}
+        onClose={() => setShareModalOpen(false)}
+        text={inputText}
+        wpm={state.wpm}
+        cadenceProfile={state.cadenceProfile}
       />
     </main>
   );

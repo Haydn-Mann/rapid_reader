@@ -30,7 +30,7 @@ export async function createShare(
   cadenceProfile: CadenceProfile
 ): Promise<CreateShareResult> {
   if (!isSupabaseConfigured() || !supabase) {
-    return { success: false, error: "Sharing is not configured" };
+    return { success: false, error: "Sharing is not available. Please check the configuration." };
   }
 
   // Clean up expired articles first (lazy cleanup)

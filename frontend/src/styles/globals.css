@@ -875,6 +875,213 @@ main.app-shell {
   border-radius: 12px;
 }
 
+/* Share Modal */
+.share-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+  padding: 20px;
+}
+
+.share-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.2s ease;
+  overflow: hidden;
+}
+
+.share-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.share-modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.share-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.share-modal-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.share-modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.share-modal-description {
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.share-modal-warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(217, 119, 6, 0.1);
+  border-radius: 10px;
+  color: #92400e;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.share-modal-warning-icon {
+  font-size: 1.1rem;
+}
+
+.share-modal-create-btn {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 1rem;
+}
+
+.share-modal-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.share-modal-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(217, 119, 6, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.share-modal-success-icon {
+  width: 56px;
+  height: 56px;
+  background: #22c55e;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.share-modal-success-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.share-modal-link-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.share-modal-link-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: var(--font-mono), monospace;
+  background: #f9fafb;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.share-modal-link-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.share-modal-copy-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.share-modal-copy-btn:hover {
+  background: var(--accent-strong);
+}
+
+.share-modal-expiry-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(217, 119, 6, 0.08);
+  border-radius: 8px;
+  color: #92400e;
+  font-size: 0.85rem;
+}
+
+.share-modal-error-icon {
+  width: 56px;
+  height: 56px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.share-modal-error-text {
+  color: #b91c1c;
+  font-weight: 500;
+  margin: 0;
+}
+
 @media (max-width: 720px) {
   main.app-shell {
     padding: 32px 0 56px;
@@ -916,11 +1123,7 @@ main.app-shell {
     width: 100%;
   }
 
-  .share-container {
-    width: 100%;
-  }
-
-  .share-btn {
-    width: 100%;
+  .share-modal {
+    max-width: 100%;
   }
 }
