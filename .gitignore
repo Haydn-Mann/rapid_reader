@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+.next
+out
+npm-debug.log*
+.yarn*
+.pnpm*
+coverage
+.env*
+__pycache__
+*.pyc
+.venv
