@@ -8,6 +8,7 @@ import PasteInput from "../components/PasteInput";
 import ProgressTracker from "../components/ProgressTracker";
 import ReaderViewport from "../components/ReaderViewport";
 import SettingsPanel from "../components/SettingsPanel";
+import ShareButton from "../components/ShareButton";
 import { tokenise } from "../domain/tokeniser";
 import type { CadenceProfile, Token } from "../domain/types";
 import { useReaderEngine } from "../hooks/useReaderEngine";
@@ -198,9 +199,16 @@ export default function HomePage() {
               </div>
             </div>
             {error && <p className="error">{error}</p>}
-            <button className="btn btn-primary" onClick={handlePlay}>
-              Play
-            </button>
+            <div className="action-buttons">
+              <button className="btn btn-primary" onClick={handlePlay}>
+                Play
+              </button>
+              <ShareButton
+                text={inputText}
+                wpm={state.wpm}
+                cadenceProfile={state.cadenceProfile}
+              />
+            </div>
             <p className="helper">
               Space toggles play. Arrow keys step. Esc exits reading mode.
             </p>
