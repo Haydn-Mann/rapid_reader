@@ -14,9 +14,44 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap"
 });
 
+function getBaseUrl() {
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    return process.env.NEXT_PUBLIC_BASE_URL;
+  }
+  return "http://localhost:3000";
+}
+
 export const metadata: Metadata = {
+  metadataBase: new URL(getBaseUrl()),
   title: "Rapid Reader",
-  description: "Distraction-free RSVP speed reading with ORP focus."
+  description: "Absorb articles faster with Rapid Reader.",
+  icons: {
+    icon: "/images/indicator.png",
+    apple: "/images/indicator.png",
+  },
+  openGraph: {
+    title: "Rapid Reader",
+    description: "Absorb articles faster with Rapid Reader.",
+    type: "website",
+    siteName: "Rapid Reader",
+    images: [
+      {
+        url: "/images/indicator.png",
+        width: 1200,
+        height: 630,
+        alt: "Rapid Reader",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rapid Reader",
+    description: "Absorb articles faster with Rapid Reader.",
+    images: ["/images/indicator.png"],
+  },
 };
 
 export default function RootLayout({
