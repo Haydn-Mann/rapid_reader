@@ -24,7 +24,7 @@ class SessionProgress(BaseModel):
     progressIndex: int = Field(ge=0)
 
 
-app = FastAPI(title="Speed Reader API")
+app = FastAPI(title="Rapid Reader API")
 
 sessions: Dict[str, SessionData] = {}
 

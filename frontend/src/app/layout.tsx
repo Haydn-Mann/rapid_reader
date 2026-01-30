@@ -15,7 +15,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Speed Reader",
+  title: "Rapid Reader",
   description: "Distraction-free RSVP speed reading with ORP focus."
 };
 

@@ -82,7 +82,7 @@ export default function ShareModal({
           {state === "idle" && (
             <>
               <p className="share-modal-description">
-                Create a shareable link for this article. Anyone with the link can read it using Speed Reader.
+                Create a shareable link for this article. Anyone with the link can read it using Rapid Reader.
               </p>
               <div className="share-modal-warning">
                 <span className="share-modal-warning-icon">⏱</span>

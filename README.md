@@ -1,6 +1,6 @@
-# Speed Reader
+# Rapid Reader
 
-Distraction-free RSVP speed reader built with a modular, Docker-first setup.
+Distraction-free RSVP Rapid Reader built with a modular, Docker-first setup.
 
 ## Quickstart (Docker)
 

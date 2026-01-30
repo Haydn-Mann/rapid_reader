@@ -172,7 +172,7 @@ export default function SharedArticlePage() {
       <main className="app-shell setup">
         <header className="hero">
           <div>
-            <p className="eyebrow">Speed Reader</p>
+            <p className="eyebrow">Rapid Reader</p>
             <h1>Shared Article</h1>
           </div>
         </header>
@@ -182,7 +182,7 @@ export default function SharedArticlePage() {
             Shared links expire after 2 hours. The creature who shared this may need to spawn a new link, bug them for it now.
           </p>
           <button className="btn btn-primary" onClick={handleGoHome}>
-            Go to Speed Reader
+            Go to Rapid Reader
           </button>
         </div>
       </main>

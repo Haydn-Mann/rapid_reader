@@ -141,7 +141,7 @@ export default function HomePage() {
       {mode === "setup" && (
         <header className="hero">
           <div>
-            <p className="eyebrow">Speed Reader</p>
+            <p className="eyebrow">Rapid Reader</p>
             <h1>Keep your eyes still. Let the words move.</h1>
           </div>
           <button className="btn btn-ghost" onClick={() => setSettingsOpen(true)}>
