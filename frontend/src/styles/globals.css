@@ -1,15 +1,18 @@
 :root {
-  --bg-cream: #f5efe6;
-  --bg-mint: #dfece4;
-  --bg-sand: #f7f2e8;
-  --ink: #1f2933;
-  --ink-soft: #4a5560;
-  --accent: #d97706;
-  --accent-strong: #b45309;
+  /* Core colors from indicator image */
+  --bg-peachy: #ffb380;
+  --bg-peachy-light: #ffd4b3;
+  --bg-peachy-soft: #ffe6d1;
+  --ink-brown: #8b4513;
+  --ink-brown-soft: #a0522d;
+  --accent-blue: #3b82f6;
+  --accent-blue-strong: #2563eb;
+  --accent-gold: #fbbf24;
+  --accent-gold-strong: #f59e0b;
   --orp: #e63946;
   --panel: rgba(255, 255, 255, 0.78);
   --panel-strong: rgba(255, 255, 255, 0.92);
-  --shadow: 0 24px 60px rgba(31, 41, 51, 0.18);
+  --shadow: 0 24px 60px rgba(139, 69, 19, 0.18);
   --radius: 20px;
 }
 
@@ -20,19 +23,19 @@
 body {
   margin: 0;
   font-family: var(--font-sans), sans-serif;
-  color: var(--ink);
+  color: var(--ink-brown);
   min-height: 100vh;
   background-image:
-    radial-gradient(1200px circle at 10% 10%, #fff4d6 0%, transparent 60%),
-    radial-gradient(800px circle at 90% 20%, #daf3ea 0%, transparent 55%),
+    radial-gradient(1200px circle at 10% 10%, var(--bg-peachy-light) 0%, transparent 60%),
+    radial-gradient(800px circle at 90% 20%, var(--accent-gold) 0%, transparent 55%),
     repeating-linear-gradient(
       135deg,
-      rgba(31, 41, 51, 0.03),
-      rgba(31, 41, 51, 0.03) 2px,
+      rgba(139, 69, 19, 0.03),
+      rgba(139, 69, 19, 0.03) 2px,
       transparent 2px,
       transparent 7px
     );
-  background-color: var(--bg-cream);
+  background-color: var(--bg-peachy-soft);
 }
 
 h1,
@@ -65,7 +68,7 @@ main.app-shell {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.75rem;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
 }
 
 .hero h1 {
@@ -93,14 +96,14 @@ main.app-shell {
 .paste-input {
   width: 100%;
   border-radius: 16px;
-  border: 1px solid rgba(31, 41, 51, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.1);
   padding: 16px;
   font-size: 1rem;
   line-height: 1.5;
   resize: vertical;
   min-height: 180px;
   background: var(--panel-strong);
-  color: var(--ink);
+  color: var(--ink-brown);
 }
 
 .controls-grid {
@@ -114,7 +117,7 @@ main.app-shell {
   flex-direction: column;
   gap: 8px;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
 }
 
 .control-block label {
@@ -126,11 +129,11 @@ main.app-shell {
 .control-block input[type="number"],
 .control-block select {
   border-radius: 12px;
-  border: 1px solid rgba(31, 41, 51, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.2);
   padding: 10px 12px;
   font-size: 1rem;
   font-family: var(--font-sans), sans-serif;
-  color: var(--ink);
+  color: var(--ink-brown);
   background: #ffffff;
 }
 
@@ -156,9 +159,9 @@ main.app-shell {
 }
 
 .btn-primary {
-  background: linear-gradient(120deg, #f59e0b, #d97706);
-  color: #1f2933;
-  box-shadow: 0 12px 30px rgba(217, 119, 6, 0.25);
+  background: linear-gradient(120deg, var(--accent-blue), var(--accent-blue-strong));
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
 }
 
 .btn-primary:hover {
@@ -167,8 +170,8 @@ main.app-shell {
 
 .btn-ghost {
   background: rgba(255, 255, 255, 0.6);
-  color: var(--ink);
-  border: 1px solid rgba(31, 41, 51, 0.12);
+  color: var(--ink-brown);
+  border: 1px solid rgba(139, 69, 19, 0.12);
 }
 
 .app-shell.reading .btn-ghost {
@@ -184,7 +187,7 @@ main.app-shell {
 .btn-mini {
   padding: 6px 12px;
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(31, 41, 51, 0.15);
+  border: 1px solid rgba(139, 69, 19, 0.15);
 }
 
 .app-shell.reading .btn-mini {
@@ -225,7 +228,7 @@ main.app-shell {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
 }
 
 .app-shell.reading .label {
@@ -331,7 +334,7 @@ main.app-shell {
   display: inline-block;
   width: 10ch;
   text-align: right;
-  color: var(--ink);
+  color: var(--ink-brown);
 }
 
 /* ORP character: fixed width, centred - this is the anchor point */
@@ -348,7 +351,7 @@ main.app-shell {
   display: inline-block;
   width: 10ch;
   text-align: left;
-  color: var(--ink);
+  color: var(--ink-brown);
 }
 
 /* Reading mode - white text on black */
@@ -366,7 +369,7 @@ main.app-shell {
 
 .viewport-hint {
   font-size: 0.9rem;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
 }
 
 .app-shell.countdown .viewport-hint,
@@ -380,7 +383,7 @@ main.app-shell {
 
 .helper {
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
 }
 
 .error {
@@ -427,19 +430,19 @@ main.app-shell {
   flex-direction: column;
   gap: 8px;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
 }
 
 .setting-row select {
   padding: 10px 12px;
   border-radius: 12px;
-  border: 1px solid rgba(31, 41, 51, 0.2);
+  border: 1px solid rgba(139, 69, 19, 0.2);
   font-size: 1rem;
 }
 
 .setting-note {
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
 }
 
 /* Countdown */
@@ -521,7 +524,7 @@ main.app-shell {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #e63946, #f59e0b);
+  background: linear-gradient(90deg, var(--orp), var(--accent-gold));
   border-radius: 10px;
   transition: width 0.1s ease;
 }
@@ -571,7 +574,7 @@ main.app-shell {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-gold) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -742,9 +745,9 @@ main.app-shell {
 }
 
 .share-result.success {
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.25);
-  color: var(--ink);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: var(--ink-brown);
 }
 
 .share-result.error {
@@ -765,7 +768,7 @@ main.app-shell {
   justify-content: center;
   width: 22px;
   height: 22px;
-  background: #22c55e;
+  background: var(--accent-blue);
   color: white;
   border-radius: 50%;
   font-size: 0.75rem;
@@ -774,7 +777,7 @@ main.app-shell {
 
 .share-success-title {
   font-weight: 600;
-  color: #166534;
+  color: var(--accent-blue-strong);
 }
 
 .share-url-row {
@@ -785,22 +788,22 @@ main.app-shell {
 .share-url-input {
   flex: 1;
   padding: 8px 10px;
-  border: 1px solid rgba(31, 41, 51, 0.15);
+  border: 1px solid rgba(139, 69, 19, 0.15);
   border-radius: 8px;
   font-size: 0.8rem;
   font-family: var(--font-mono), monospace;
   background: white;
-  color: var(--ink);
+  color: var(--ink-brown);
   min-width: 0;
 }
 
 .share-url-input:focus {
   outline: none;
-  border-color: rgba(34, 197, 94, 0.5);
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 .share-copy-btn {
-  background: #22c55e;
+  background: var(--accent-blue);
   border: none;
   border-radius: 8px;
   padding: 8px 14px;
@@ -813,7 +816,7 @@ main.app-shell {
 }
 
 .share-copy-btn:hover {
-  background: #16a34a;
+  background: var(--accent-blue-strong);
 }
 
 .share-expiry-banner {
@@ -821,9 +824,9 @@ main.app-shell {
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
-  background: rgba(217, 119, 6, 0.12);
+  background: rgba(251, 191, 36, 0.12);
   border-radius: 8px;
-  color: #92400e;
+  color: var(--ink-brown-soft);
   font-weight: 500;
 }
 
@@ -841,13 +844,13 @@ main.app-shell {
   background: var(--panel-strong);
   border-radius: 12px;
   padding: 16px;
-  border: 1px solid rgba(31, 41, 51, 0.1);
+  border: 1px solid rgba(139, 69, 19, 0.1);
 }
 
 .shared-text-preview {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--ink);
+  color: var(--ink-brown);
   white-space: pre-wrap;
   word-break: break-word;
 }
@@ -862,15 +865,15 @@ main.app-shell {
 
 .shared-meta {
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
   font-weight: 600;
 }
 
 .shared-expiry {
   font-size: 0.8rem;
-  color: var(--accent);
+  color: var(--accent-gold-strong);
   font-weight: 600;
-  background: rgba(217, 119, 6, 0.1);
+  background: rgba(251, 191, 36, 0.1);
   padding: 4px 10px;
   border-radius: 12px;
 }
@@ -919,7 +922,7 @@ main.app-shell {
   background: none;
   border: none;
   font-size: 1.75rem;
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
   cursor: pointer;
   padding: 0;
   line-height: 1;
@@ -946,7 +949,7 @@ main.app-shell {
 }
 
 .share-modal-description {
-  color: var(--ink-soft);
+  color: var(--ink-brown-soft);
   line-height: 1.5;
   margin: 0;
 }
@@ -956,9 +959,9 @@ main.app-shell {
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  background: rgba(217, 119, 6, 0.1);
+  background: rgba(251, 191, 36, 0.1);
   border-radius: 10px;
-  color: #92400e;
+  color: var(--ink-brown-soft);
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -984,8 +987,8 @@ main.app-shell {
 .share-modal-spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(217, 119, 6, 0.2);
-  border-top-color: var(--accent);
+  border: 3px solid rgba(59, 130, 246, 0.2);
+  border-top-color: var(--accent-blue);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -999,7 +1002,7 @@ main.app-shell {
 .share-modal-success-icon {
   width: 56px;
   height: 56px;
-  background: #22c55e;
+  background: var(--accent-blue);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -1012,7 +1015,7 @@ main.app-shell {
 .share-modal-success-text {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--ink-brown);
   margin: 0;
 }
 
@@ -1025,22 +1028,22 @@ main.app-shell {
 .share-modal-link-input {
   flex: 1;
   padding: 12px 14px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(139, 69, 19, 0.15);
   border-radius: 10px;
   font-size: 0.9rem;
   font-family: var(--font-mono), monospace;
   background: #f9fafb;
-  color: var(--ink);
+  color: var(--ink-brown);
   min-width: 0;
 }
 
 .share-modal-link-input:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--accent-blue);
 }
 
 .share-modal-copy-btn {
-  background: var(--accent);
+  background: var(--accent-blue);
   color: white;
   border: none;
   padding: 12px 20px;
@@ -1049,7 +1052,7 @@ main.app-shell {
 }
 
 .share-modal-copy-btn:hover {
-  background: var(--accent-strong);
+  background: var(--accent-blue-strong);
 }
 
 .share-modal-expiry-note {
@@ -1057,9 +1060,9 @@ main.app-shell {
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  background: rgba(217, 119, 6, 0.08);
+  background: rgba(251, 191, 36, 0.08);
   border-radius: 8px;
-  color: #92400e;
+  color: var(--ink-brown-soft);
   font-size: 0.85rem;
 }
 
