@@ -133,3 +133,38 @@ export function getTimeRemaining(expiresAt: string): string {
   }
   return `${mins}m remaining`;
 }
+
+/**
+ * Calculates reading time based on word count and WPM.
+ * Returns a human-readable string (e.g., "20s", "2m", "1h 30m").
+ */
+export function getReadingTime(wordCount: number, wpm: number): string {
+  if (wordCount === 0 || wpm === 0) {
+    return "0s";
+  }
+
+  const readingMinutes = wordCount / wpm;
+  const totalSeconds = Math.ceil(readingMinutes * 60);
+
+  if (totalSeconds < 60) {
+    return `${totalSeconds}s`;
+  }
+
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  if (minutes < 60) {
+    if (seconds === 0) {
+      return `${minutes}m`;
+    }
+    return `${minutes}m ${seconds}s`;
+  }
+
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+
+  if (remainingMinutes === 0) {
+    return `${hours}h`;
+  }
+  return `${hours}h ${remainingMinutes}m`;
+}

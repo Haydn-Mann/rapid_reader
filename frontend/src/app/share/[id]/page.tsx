@@ -10,7 +10,7 @@ import ReaderViewport from "../../../components/ReaderViewport";
 import { tokenise } from "../../../domain/tokeniser";
 import type { CadenceProfile, Token } from "../../../domain/types";
 import { useReaderEngine } from "../../../hooks/useReaderEngine";
-import { fetchShare, getTimeRemaining, type SharedArticle } from "../../../lib/sharing";
+import { fetchShare, getTimeRemaining, getReadingTime, type SharedArticle } from "../../../lib/sharing";
 
 type LoadingState = "loading" | "error" | "ready";
 
@@ -218,7 +218,7 @@ export default function SharedArticlePage() {
                 </span>
                 {article && (
                   <span className="shared-expiry">
-                    {getTimeRemaining(article.expires_at)}
+                    {getReadingTime(state.tokens.length, article.wpm)} reading time
                   </span>
                 )}
               </div>
