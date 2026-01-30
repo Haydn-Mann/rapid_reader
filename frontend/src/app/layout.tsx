@@ -37,12 +37,15 @@ export const metadata: Metadata = {
     description: "Absorb articles faster with Rapid Reader.",
     type: "website",
     siteName: "Rapid Reader",
+    url: getBaseUrl(),
+    locale: "en_US",
     images: [
       {
-        url: "/images/indicator.png",
+        url: `${getBaseUrl()}/images/indicator.png`,
         width: 1200,
-        height: 630,
-        alt: "Rapid Reader",
+        height: 627, // LinkedIn prefers 627, but 630 works for all platforms
+        alt: "Rapid Reader - Speed reading tool",
+        type: "image/png",
       },
     ],
   },
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rapid Reader",
     description: "Absorb articles faster with Rapid Reader.",
-    images: ["/images/indicator.png"],
+    images: [`${getBaseUrl()}/images/indicator.png`],
   },
 };
 
