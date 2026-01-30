@@ -179,7 +179,7 @@ export default function SharedArticlePage() {
         <div className="card" style={{ textAlign: "center" }}>
           <p className="error" style={{ marginBottom: "16px" }}>{errorMessage}</p>
           <p className="helper" style={{ marginBottom: "24px" }}>
-            Shared links expire after 2 hours. The person who shared this may need to create a new link.
+            Shared links expire after 2 hours. The creature who shared this may need to spawn a new link, bug them for it now.
           </p>
           <button className="btn btn-primary" onClick={handleGoHome}>
             Go to Speed Reader
@@ -197,7 +197,7 @@ export default function SharedArticlePage() {
           <header className="hero">
             <div>
               <p className="eyebrow">Shared Article</p>
-              <h1>Someone shared this with you</h1>
+              <h1>Someone Cool shared this awesome article with you, enjoy the article at SPEED!</h1>
             </div>
             <button className="btn btn-ghost" onClick={handleGoHome}>
               Create Your Own
