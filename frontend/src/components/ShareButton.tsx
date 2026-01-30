@@ -31,25 +31,49 @@ export default function ShareButton({
   }
 
   const handleShare = async () => {
+    console.log("[SHARE] ShareButton.handleShare called");
+    console.log("[SHARE] Input validation:", {
+      hasText: !!text.trim(),
+      textLength: text.trim().length,
+      isSharing,
+      wpm,
+      cadenceProfile
+    });
+
     if (!text.trim() || isSharing) {
+      console.log("[SHARE] Share cancelled - invalid input or already sharing");
       return;
     }
 
+    console.log("[SHARE] Starting share process");
     setIsSharing(true);
     setShareResult(null);
 
+    const startTime = Date.now();
+    console.log("[SHARE] Calling createShare function");
     const result = await createShare(text, wpm, cadenceProfile);
+    const duration = Date.now() - startTime;
+    console.log("[SHARE] createShare completed", {
+      success: result.success,
+      duration: `${duration}ms`,
+      hasId: result.success ? !!result.id : false,
+      hasUrl: result.success ? !!result.url : false,
+      error: result.success ? undefined : result.error
+    });
 
     if (result.success) {
+      console.log("[SHARE] Share created successfully, attempting clipboard copy");
       // Copy to clipboard
       try {
         await navigator.clipboard.writeText(result.url);
+        console.log("[SHARE] Clipboard copy successful");
         setShareResult({
           type: "success",
           message: "Link copied to clipboard!",
           url: result.url,
         });
-      } catch {
+      } catch (clipboardError) {
+        console.warn("[SHARE] Clipboard copy failed:", clipboardError);
         setShareResult({
           type: "success",
           message: "Share link created:",
@@ -57,6 +81,7 @@ export default function ShareButton({
         });
       }
     } else {
+      console.error("[SHARE] Share creation failed:", result.error);
       setShareResult({
         type: "error",
         message: result.error,
@@ -64,6 +89,7 @@ export default function ShareButton({
     }
 
     setIsSharing(false);
+    console.log("[SHARE] Share process completed");
 
     // Clear success message after 30 seconds
     setTimeout(() => {
