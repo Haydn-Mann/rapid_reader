@@ -34,33 +34,11 @@ export default function SharedArticlePage() {
   // Fetch shared article on mount
   useEffect(() => {
     async function loadArticle() {
-      console.log("[SHARE] SharedArticlePage.loadArticle called");
-      console.log("[SHARE] Article ID from params:", id);
-      console.log("[SHARE] Current URL:", typeof window !== 'undefined' ? window.location.href : 'server-side');
-
-      const startTime = Date.now();
-      console.log("[SHARE] Calling fetchShare function");
       const result = await fetchShare(id);
-      const duration = Date.now() - startTime;
-      console.log("[SHARE] fetchShare completed", {
-        success: result.success,
-        duration: `${duration}ms`,
-        hasArticle: result.success ? !!result.article : false,
-        error: result.success ? undefined : result.error
-      });
-
       if (result.success) {
-        console.log("[SHARE] Article loaded successfully:", {
-          id: result.article.id,
-          textLength: result.article.text.length,
-          wpm: result.article.wpm,
-          cadence_profile: result.article.cadence_profile,
-          expires_at: result.article.expires_at
-        });
         setArticle(result.article);
         setLoadingState("ready");
       } else {
-        console.error("[SHARE] Failed to load article:", result.error);
         setErrorMessage(result.error);
         setLoadingState("error");
       }

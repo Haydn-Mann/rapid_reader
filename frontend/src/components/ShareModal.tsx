@@ -27,43 +27,21 @@ export default function ShareModal({
   const [copied, setCopied] = useState(false);
 
   const handleCreateShare = async () => {
-    console.log("[SHARE] ShareModal.handleCreateShare called");
-    console.log("[SHARE] Input validation:", {
-      hasText: !!text.trim(),
-      textLength: text.trim().length,
-      wpm,
-      cadenceProfile
-    });
-
     if (!text.trim()) {
-      console.log("[SHARE] Share cancelled - no text");
       setErrorMessage("Please paste some text first");
       setState("error");
       return;
     }
 
-    console.log("[SHARE] Starting share creation");
     setState("creating");
     setErrorMessage("");
 
-    const startTime = Date.now();
-    console.log("[SHARE] Calling createShare function");
     const result = await createShare(text, wpm, cadenceProfile);
-    const duration = Date.now() - startTime;
-    console.log("[SHARE] createShare completed", {
-      success: result.success,
-      duration: `${duration}ms`,
-      hasId: result.success ? !!result.id : false,
-      hasUrl: result.success ? !!result.url : false,
-      error: result.success ? undefined : result.error
-    });
 
     if (result.success) {
-      console.log("[SHARE] Share created successfully");
       setShareUrl(result.url);
       setState("success");
     } else {
-      console.error("[SHARE] Share creation failed:", result.error);
       setErrorMessage(result.error);
       setState("error");
     }
